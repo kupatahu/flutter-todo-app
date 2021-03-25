@@ -21,6 +21,6 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   Stream<TodoState> _mapFetchTodoToState(TodoEvent event) async* {
     final todos = await todoUsecase.getAll();
 
-    yield TodoLoaded(todos);
+    yield TodoLoaded(todos: todos);
   }
 }
