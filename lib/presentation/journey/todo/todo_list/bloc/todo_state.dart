@@ -1,11 +1,13 @@
 import 'package:todo_app/domain/entities/todo.dart';
 
-abstract class TodoState {}
+abstract class TodoState {
+  final List<Todo> todos;
+
+  TodoState({this.todos = const []});
+}
 
 class TodoInitial extends TodoState {}
 
 class TodoLoaded extends TodoState {
-  final List<Todo> todos;
-
-  TodoLoaded(this.todos);
+  TodoLoaded({List<Todo> todos}) : super(todos: todos);
 }

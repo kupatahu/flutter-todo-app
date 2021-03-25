@@ -16,7 +16,7 @@ abstract class Injector {
   }
 
   static _registerBlocs() {
-    container.registerSingleton<TodoBloc>(
+    container.registerFactory<TodoBloc>(
       (c) => TodoBloc(
         todoUsecase: c<TodoUsecase>(),
       ),
@@ -32,7 +32,7 @@ abstract class Injector {
 
   static _registerRepositories() {
     container.registerSingleton<TodoRepository>(
-      (c) => c<TodoRepositoryImpl>(),
+      (c) => TodoRepositoryImpl(),
     );
   }
 }

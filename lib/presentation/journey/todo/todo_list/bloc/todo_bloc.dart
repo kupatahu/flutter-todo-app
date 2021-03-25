@@ -3,6 +3,9 @@ import 'package:todo_app/domain/usecases/todo_usecase.dart';
 import 'package:todo_app/presentation/journey/todo/todo_list/bloc/todo_event.dart';
 import 'package:todo_app/presentation/journey/todo/todo_list/bloc/todo_state.dart';
 
+export 'package:todo_app/presentation/journey/todo/todo_list/bloc/todo_event.dart';
+export 'package:todo_app/presentation/journey/todo/todo_list/bloc/todo_state.dart';
+
 class TodoBloc extends Bloc<TodoEvent, TodoState> {
   final TodoUsecase todoUsecase;
 
@@ -18,6 +21,6 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   Stream<TodoState> _mapFetchTodoToState(TodoEvent event) async* {
     final todos = await todoUsecase.getAll();
 
-    yield TodoLoaded(todos);
+    yield TodoLoaded(todos: todos);
   }
 }
