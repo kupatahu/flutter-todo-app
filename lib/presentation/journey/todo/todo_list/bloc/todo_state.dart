@@ -11,3 +11,7 @@ class TodoInitial extends TodoState {}
 class TodoLoaded extends TodoState {
   TodoLoaded({List<Todo> todos}) : super(todos: todos);
 }
+
+class TodoUpdated extends TodoLoaded {
+  TodoUpdated({List<Todo> todos}) : super(todos: todos);
+}

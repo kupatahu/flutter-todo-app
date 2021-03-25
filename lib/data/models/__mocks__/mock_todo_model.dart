@@ -1,7 +1,7 @@
 import 'package:todo_app/data/models/todo_model.dart';
 
 final mockTodoModelList = [
-  TodoModel(title: 'Buy milk'),
-  TodoModel(title: 'Yoga class'),
-  TodoModel(title: 'Pay rent', isCompleted: true),
+  TodoModel(id: 1, title: 'Buy milk'),
+  TodoModel(id: 2, title: 'Yoga class'),
+  TodoModel(id: 3, title: 'Pay rent', isCompleted: true),
 ];

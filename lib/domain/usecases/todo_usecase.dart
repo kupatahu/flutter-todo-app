@@ -9,4 +9,10 @@ class TodoUsecase {
   Future<List<Todo>> getAll() async {
     return todoRepository.getAll();
   }
+
+  Future<void> toggleCompleted(Todo todo) async {
+    todo.toggleCompleted();
+
+    return todoRepository.update(todo);
+  }
 }

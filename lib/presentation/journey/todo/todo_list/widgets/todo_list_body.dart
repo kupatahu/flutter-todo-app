@@ -5,8 +5,13 @@ import 'package:todo_app/presentation/journey/todo/todo_list/widgets/todo_item.d
 
 class TodoListBody extends StatelessWidget {
   final List<Todo> todos;
+  final Function(Todo todo) onItemPressed;
 
-  const TodoListBody({Key key, this.todos}) : super(key: key);
+  const TodoListBody({
+    Key key,
+    this.todos,
+    this.onItemPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +23,7 @@ class TodoListBody extends StatelessWidget {
           return TodoItem(
             todo: todos[index],
             index: index,
+            onPressed: onItemPressed,
           );
         },
       ),

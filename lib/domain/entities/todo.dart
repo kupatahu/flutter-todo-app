@@ -1,6 +1,13 @@
 class Todo {
+  final int id;
   final String title;
-  final bool isCompleted;
+  bool isCompleted;
 
-  Todo({this.title, this.isCompleted = false});
+  Todo({
+    this.id,
+    this.title,
+    this.isCompleted = false,
+  });
+
+  void toggleCompleted() => isCompleted = !isCompleted;
 }
