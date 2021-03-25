@@ -5,7 +5,7 @@ import 'package:todo_app/domain/entities/todo.dart';
 import 'package:todo_app/presentation/journey/todo/todo_list/widgets/todo_item.dart';
 
 class MockFunction extends Mock {
-  dynamic oneArg(dynamic arg);
+  dynamic onPressed(dynamic arg);
 }
 
 void main() {
@@ -14,8 +14,8 @@ void main() {
     int index = 0;
     Function onPressed;
 
-    tearDown(() {
-      onPressed = MockFunction().oneArg;
+    setUp(() {
+      onPressed = MockFunction().onPressed;
     });
 
     Future<void> pumpTodoItem(WidgetTester tester) async {
@@ -43,6 +43,17 @@ void main() {
           expect(find.byType(Checkbox), findsOneWidget);
           expect(find.byKey(ValueKey('todo_item_$index')), findsOneWidget);
           expect(find.text(todo.title), findsOneWidget);
+        },
+      );
+
+      testWidgets(
+        'invoke onPressed callback when tap on checkbox',
+        (WidgetTester tester) async {
+          await pumpTodoItem(tester);
+
+          await tester.tap(find.byType(Checkbox));
+
+          verify(onPressed(todo)).called(1);
         },
       );
     });
