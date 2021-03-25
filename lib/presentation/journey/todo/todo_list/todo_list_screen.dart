@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/data/models/__mocks__/mock_todo_model.dart';
+import 'package:todo_app/presentation/journey/todo/todo_list/widgets/todo_list_body.dart';
 
 class TodoListScreen extends StatelessWidget {
   @override
@@ -6,6 +8,9 @@ class TodoListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('My To-do'),
+      ),
+      body: TodoListBody(
+        todos: mockTodoModelList,
       ),
     );
   }
