@@ -9,7 +9,10 @@ export 'package:todo_app/presentation/journey/todo/todo_list/bloc/todo_state.dar
 class TodoBloc extends Bloc<TodoEvent, TodoState> {
   final TodoUsecase todoUsecase;
 
-  TodoBloc({this.todoUsecase}) : super(TodoInitial());
+  TodoBloc({this.todoUsecase});
+
+  @override
+  TodoState get initialState => TodoInitial();
 
   @override
   Stream<TodoState> mapEventToState(TodoEvent event) async* {
